@@ -4,31 +4,59 @@
              x:Class="ZamoraRobertoSegundoProgreso.AboutPage"
              Title="Acerca de mi">
 
-    <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" Padding="20">
-        <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10" BackgroundColor="#E6E6FA">
+    <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" Padding="20" BackgroundColor="White">
+        <!-- Fila 1 - Columna 1 -->
+        <Frame Grid.Row="0" Grid.Column="0" 
+               CornerRadius="10" 
+               BackgroundColor="#F5F5F5" 
+               BorderColor="LightGray"
+               Padding="15">
             <Label Text="Nombre: Roberto Zamora"
-                   FontSize="20"
+                   FontSize="18"
+                   TextColor="Black"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10" BackgroundColor="#E6E6FA">
-            <Label Text="Mi cumpleaños: 10/08/2005 "
-                   FontSize="20"
+        <!-- Fila 1 - Columna 2 -->
+        <Frame Grid.Row="0" Grid.Column="1" 
+               CornerRadius="10" 
+               BackgroundColor="#F5F5F5"
+               BorderColor="LightGray"
+               Padding="15">
+            <Label Text="Fecha de nacimiento: 10/08/2005"
+                   FontSize="18"
+                   TextColor="Black"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="1" Grid.Column="0" CornerRadius="10" BackgroundColor="#E6E6FA">
+        <!-- Fila 2 - Columna 1 -->
+        <Frame Grid.Row="1" Grid.Column="0" 
+               CornerRadius="10" 
+               BackgroundColor="#F5F5F5"
+               BorderColor="LightGray"
+               Padding="15">
             <Label Text="Intereses: Programacion, Musica y Cine"
-                   FontSize="20"
+                   FontSize="18"
+                   TextColor="Black"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10" BackgroundColor="#E6E6FA">
+        <!-- Fila 2 - Columna 2 -->
+        <Frame Grid.Row="1" Grid.Column="1" 
+               CornerRadius="10" 
+               BackgroundColor="#F5F5F5"
+               BorderColor="LightGray"
+               Padding="15">
             <Label Text="Versión: 1.0"
-                   FontSize="20"
+                   FontSize="18"
+                   TextColor="Black"
+                   FontAttributes="Bold"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
         </Frame>
