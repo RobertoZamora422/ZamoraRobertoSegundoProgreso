@@ -1,8 +1,4 @@
-﻿using Microsoft.Maui.Controls;
-using System;
-
-using Microsoft.Maui.Controls;
- 
+﻿using ZamoraRobertoSegundoProgreso.Services;
 namespace ZamoraRobertoSegundoProgreso
 {
     public partial class MainPage : ContentPage
@@ -14,7 +10,8 @@ namespace ZamoraRobertoSegundoProgreso
 
         private async void OnChistesClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ChistesPage());
+            await Navigation.PushAsync(new ChistesPage(
+                MauiProgram.CreateMauiApp().Services.GetRequiredService<IChistesService>()));
         }
 
         private async void OnAboutClicked(object sender, EventArgs e)

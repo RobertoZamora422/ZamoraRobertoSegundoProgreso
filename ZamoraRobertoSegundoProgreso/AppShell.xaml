@@ -8,8 +8,7 @@
     Title="ZamoraRobertoSegundoProgreso">
 
     <ShellContent
-        Title="Home"
+        Title="Inicio"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
 </Shell>

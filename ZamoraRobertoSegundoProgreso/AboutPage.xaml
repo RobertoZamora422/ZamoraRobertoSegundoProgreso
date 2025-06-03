@@ -2,34 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZamoraRobertoSegundoProgreso.AboutPage"
-             Title="AboutPage">
+             Title="Acerca de mi">
+
     <Grid RowDefinitions="*,*" ColumnDefinitions="*,*" Padding="20">
-        <Frame Grid.Row="0" Grid.Column="0">
-            <VerticalStackLayout>
-                <Label Text="Nombre:" FontAttributes="Bold"/>
-                <Label Text="Roberto Zamora"/>
-            </VerticalStackLayout>
+        <Frame Grid.Row="0" Grid.Column="0" CornerRadius="10" BackgroundColor="#E6E6FA">
+            <Label Text="Nombre: Roberto Zamora"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="0" Grid.Column="1">
-            <VerticalStackLayout>
-                <Label Text="Fecha Nacimiento:" FontAttributes="Bold"/>
-                <Label Text="[Tu fecha]"/>
-            </VerticalStackLayout>
+        <Frame Grid.Row="0" Grid.Column="1" CornerRadius="10" BackgroundColor="#E6E6FA">
+            <Label Text="Mi cumpleaños: 10/08/2005 "
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="1" Grid.Column="0">
-            <VerticalStackLayout>
-                <Label Text="Intereses:" FontAttributes="Bold"/>
-                <Label Text="[Tus intereses]"/>
-            </VerticalStackLayout>
+        <Frame Grid.Row="1" Grid.Column="0" CornerRadius="10" BackgroundColor="#E6E6FA">
+            <Label Text="Intereses: Programacion, Musica y Cine"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
         </Frame>
 
-        <Frame Grid.Row="1" Grid.Column="1">
-            <VerticalStackLayout>
-                <Label Text="Versión:" FontAttributes="Bold"/>
-                <Label Text="1.0.0"/>
-            </VerticalStackLayout>
+        <Frame Grid.Row="1" Grid.Column="1" CornerRadius="10" BackgroundColor="#E6E6FA">
+            <Label Text="Versión: 1.0"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
         </Frame>
     </Grid>
 </ContentPage>

@@ -1,40 +1,27 @@
-using System.Net.Http;
-using System.Text.Json;
- 
+using ZamoraRobertoSegundoProgreso.Services;
+
 namespace ZamoraRobertoSegundoProgreso
 {
     public partial class ChistesPage : ContentPage
     {
-        private readonly HttpClient _httpClient;
+        private readonly IChistesService _chistesService;
 
-        public ChistesPage(HttpClient httpClient = null)
+        public ChistesPage(IChistesService chistesService)
         {
             InitializeComponent();
-            _httpClient = httpClient ?? new HttpClient();
-            LoadJoke();
+            _chistesService = chistesService;
+            CargarChiste();
         }
 
-        private async void LoadJoke()
+        private async void CargarChiste()
         {
-            try
-            {
-                var response = await _httpClient.GetStringAsync("https://official-joke-api.appspot.com/random_joke");
-                var joke = JsonSerializer.Deserialize<Joke>(response);
-                chisteLabel.Text = $"{joke.Setup}\n\n{joke.Punchline}";
-            }
-            catch (Exception ex)
-            {
-                chisteLabel.Text = $"Error: {ex.Message}";
-                await DisplayAlert("Error", "No se pudo cargar el chiste", "OK");
-            }
+            var chiste = await _chistesService.ObtenerChisteAleatorioAsync();
+            ChisteLabel.Text = chiste.TextoCompleto;
         }
 
-        private void OnNuevoChisteClicked(object sender, EventArgs e) => LoadJoke();
-    }
-
-    public class Joke
-    {
-        public string Setup { get; set; }
-        public string Punchline { get; set; }
+        private void OnNuevoChisteClicked(object sender, EventArgs e)
+        {
+            CargarChiste();
+        }
     }
 }
