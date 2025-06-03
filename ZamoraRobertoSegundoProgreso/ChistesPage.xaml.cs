@@ -1,36 +1,35 @@
-using System;
 using System.Net.Http;
 using System.Text.Json;
-using Microsoft.Maui.Controls;
-
-namespace ZamoraRobertoSegundoProgreso;
-
-public partial class ChistesPage : ContentPage
+ 
+namespace ZamoraRobertoSegundoProgreso
 {
-    private readonly HttpClient _httpClient = new HttpClient();
-    public ChistesPage()
-	{
-		InitializeComponent();
-        LoadJoke();
-    }
-
-    private async void LoadJoke()
+    public partial class ChistesPage : ContentPage
     {
-        try
-        {
-            var response = await _httpClient.GetStringAsync("https://official-joke-api.appspot.com/random_joke");
-            var joke = JsonSerializer.Deserialize<Joke>(response);
-            chisteLabel.Text = $"{joke.Setup}\n\n{joke.Punchline}";
-        }
-        catch (Exception ex)
-        {
-            chisteLabel.Text = $"Error al cargar el chiste: {ex.Message}";
-        }
-    }
+        private readonly HttpClient _httpClient;
 
-    private void OnVolverClicked(object sender, EventArgs e)
-    {
-        Navigation.PopAsync();
+        public ChistesPage(HttpClient httpClient = null)
+        {
+            InitializeComponent();
+            _httpClient = httpClient ?? new HttpClient();
+            LoadJoke();
+        }
+
+        private async void LoadJoke()
+        {
+            try
+            {
+                var response = await _httpClient.GetStringAsync("https://official-joke-api.appspot.com/random_joke");
+                var joke = JsonSerializer.Deserialize<Joke>(response);
+                chisteLabel.Text = $"{joke.Setup}\n\n{joke.Punchline}";
+            }
+            catch (Exception ex)
+            {
+                chisteLabel.Text = $"Error: {ex.Message}";
+                await DisplayAlert("Error", "No se pudo cargar el chiste", "OK");
+            }
+        }
+
+        private void OnNuevoChisteClicked(object sender, EventArgs e) => LoadJoke();
     }
 
     public class Joke

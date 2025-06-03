@@ -1,12 +1,12 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
 
+using Microsoft.Maui.Controls;
+ 
 namespace ZamoraRobertoSegundoProgreso
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
@@ -14,23 +14,12 @@ namespace ZamoraRobertoSegundoProgreso
 
         private async void OnChistesClicked(object sender, EventArgs e)
         {
-            try
-            {
-                var chistesPage = Handler.MauiContext.Services.GetService<ChistesPage>();
+            await Navigation.PushAsync(new ChistesPage());
+        }
 
-                if (chistesPage != null)
-                {
-                    await Navigation.PushAsync(chistesPage);
-                }
-                else
-                {
-                    await DisplayAlert("Error", "No se pudo cargar la página de chistes.", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Error", $"Ocurrió un error al intentar abrir la página de chistes: {ex.Message}", "OK");
-            }
+        private async void OnAboutClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage());
         }
     }
 }
