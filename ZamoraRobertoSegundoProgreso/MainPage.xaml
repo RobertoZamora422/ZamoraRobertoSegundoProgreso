@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ZamoraRobertoSegundoProgreso.MainPage"
              Title="Inicio">
-    
+
 
     <ScrollView>
         <StackLayout
@@ -25,12 +25,12 @@
                 Text="Chistes"
                 Clicked="OnChistesClicked"
                 HorizontalOptions="Center"/>
-            
+
             <Button
                 Text="About"
                 Clicked="OnAboutClicked"
                 HorizontalOptions="Center"/>
-            
+
         </StackLayout>
     </ScrollView>
 
