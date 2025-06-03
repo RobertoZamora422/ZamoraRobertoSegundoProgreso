@@ -1,4 +1,7 @@
-﻿namespace ZamoraRobertoSegundoProgreso
+﻿using Microsoft.Maui.Controls;
+using System;
+
+namespace ZamoraRobertoSegundoProgreso
 {
     public partial class MainPage : ContentPage
     {
@@ -9,17 +12,25 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnChistesClicked(object sender, EventArgs e)
         {
-            count++;
+            try
+            {
+                var chistesPage = Handler.MauiContext.Services.GetService<ChistesPage>();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+                if (chistesPage != null)
+                {
+                    await Navigation.PushAsync(chistesPage);
+                }
+                else
+                {
+                    await DisplayAlert("Error", "No se pudo cargar la página de chistes.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Ocurrió un error al intentar abrir la página de chistes: {ex.Message}", "OK");
+            }
         }
     }
-
 }
